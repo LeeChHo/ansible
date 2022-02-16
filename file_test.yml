@@ -1,0 +1,22 @@
+---
+- name: ping test
+  hosts: target
+  gather_facts: True
+  tasks:
+  -  name: ping test
+     ping:
+
+- name: touch files test
+  hosts: target
+  remote_user: root
+  gather_facts: False
+  tasks:
+  - name: create directory
+    file:
+      path: /home/worker/test
+      state: directory
+  
+  - name: touch file
+    file:
+       path: /home/worker/test/test.txt
+       state: touch
