@@ -1,0 +1,31 @@
+---
+- name: copy file managed node 1
+  hosts: managed1
+  remote_user: root
+  become: yes
+  tasks:
+  - name: create data directory
+    file:
+      path: /home/worker/data
+      state: directory
+
+  - name: copy file with managed1
+    copy:
+      src: /home/ansible/playbooks/sample.txt
+      dest: /home/worker/data/sample.txt
+  
+- name: copy file managed node 2
+  hosts: managed2
+  remote_user: root
+  become: yes
+  tasks:
+  - name: create data directory
+    file:
+      path: /home/ansible/data
+      state: directory
+  
+  - name: copy file with managed2
+    copy:
+      src: /home/ansible/playbooks/sample.txt
+      dest: /home/ansible/data/sample.txt
+      
