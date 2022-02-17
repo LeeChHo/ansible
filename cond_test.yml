@@ -3,8 +3,8 @@
   hosts: 192.168.0.5
   gather_facts: False
   tasks:
-  - name: shell command
-    shell: /usr/bin/foo
+  - name: shell command - /usr/bin/foo
+    shell: python3 --version
     register: result
     ignore_errors: True
     
