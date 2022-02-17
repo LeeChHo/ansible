@@ -1,0 +1,17 @@
+---
+- name: loop test
+  hosts: 192.168.0.5
+  gather_facts: False
+  tasks:
+  - name: shell command
+    shell: /usr/bin/foo
+    register: result
+    ignore_errors: True
+    
+  - debug:
+      msg: "failed"
+      when: result is failed
+
+  - debug:
+      msg: "changed"
+      when: result is changed
