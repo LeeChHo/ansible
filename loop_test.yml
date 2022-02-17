@@ -1,11 +1,12 @@
 ---
 - name: loop test
-  hosts: all
+  hosts: 192.168.0.5
   gather_facts: False
   tasks:
   - debug:
-      msg: "{{ item }}"
+      msg: "{{ item.user }} - {{ item.group }}"
     loop:
-    - a
-    - b
-    - c
+    - user: user1
+      group: user1
+    - user: user2
+      group: group2
