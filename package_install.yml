@@ -12,7 +12,9 @@
       var=ansible_facts
 
   - name: Install Apache2 package
-    apt: 
+    apt:
+      upgrade: yes
+      update_cache: yes
       name: apache2, php
       state: present
     when: ansible_facts[ "distribution" ] == "Ubuntu"
