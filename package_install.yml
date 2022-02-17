@@ -4,10 +4,10 @@
   gather_facts: False
   tasks:
   - name: Collect only selected facts
-    ansible.builtin.setup:
-    filter:
+    setup:
+      filter:
       - 'ansible_distribution'
-      
+
   - name: Install Apache2 package
     apt: 
       name: apache2, php
