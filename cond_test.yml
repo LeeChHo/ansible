@@ -8,6 +8,12 @@
     register: result
     ignore_errors: True
     
+  - name: Configure SELinux to start mysql on any port
+    ansible.posix.seboolean:
+      name: sql_connect_any
+      parsistent: yes
+    when: ansible_selinux.status == "enabled"
+  
   - debug:
       msg: "{{ result.stderr }}"
     when: result is failed
