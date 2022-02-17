@@ -15,5 +15,5 @@
     register: grade
     when: ( score|int < 60)
    
-   - debug:
+  - debug:
        msg: "{{ grade }}"
