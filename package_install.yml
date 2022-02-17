@@ -2,7 +2,12 @@
 - name: web service package install
   hosts: 192.168.0.5
   gather_facts: False
-  task:
+  tasks:
+  - name: Collect only selected facts
+    ansible.builtin.setup:
+    filter:
+      - 'ansible_distribution'
+      
   - name: Install Apache2 package
     apt: 
       name: apache2, php
