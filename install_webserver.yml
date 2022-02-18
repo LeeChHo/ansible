@@ -10,8 +10,8 @@
         update_cache: True
       notify:
         - Start Nginx
-    handler: 
-      - name: start Nginx
-          service:
-            name: nginx
-            state: started
+  handler: 
+    - name: start Nginx
+        service:
+          name: nginx
+          state: started
