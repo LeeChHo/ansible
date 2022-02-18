@@ -1,0 +1,17 @@
+---
+- name: install web server
+  hosts: all
+  bcome: yes
+  tasks:
+    - name: Install nginx
+      apt: 
+        name: nginx
+        state: lastest
+        update_cache: True
+      notify:
+        - Start Nginx
+    handler: 
+      - name: start Nginx
+          service:
+            name: nginx
+            state: started
