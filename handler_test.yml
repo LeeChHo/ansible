@@ -1,7 +1,7 @@
 ---
 - name: handler test
   hosts: all
-  handler:
+  handlers:
     - name: stop message
       debug:
         msg: stop play
