@@ -1,7 +1,7 @@
 ---
 - name: install web server
   hosts: all
-  bcome: yes
+  become: yes
   tasks:
     - name: Install nginx
       apt: 
@@ -16,7 +16,7 @@
         name: nginx
         state: absent
         
-  handler: 
+  handlers: 
     - name: start Nginx
       service:
         name: nginx
