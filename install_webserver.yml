@@ -18,6 +18,6 @@
         
   handler: 
     - name: start Nginx
-        service:
-          name: nginx
-          state: started
+      service:
+        name: nginx
+        state: started
