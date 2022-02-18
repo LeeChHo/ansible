@@ -4,3 +4,9 @@
 
 - debug:
     msg: "{{ result.stdout }}"
+
+- name:
+  apt:
+    name: "{{ package }}"
+    state: latest
+    update_cache: yes
