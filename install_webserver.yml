@@ -6,7 +6,7 @@
     - name: Install nginx
       apt: 
         name: nginx
-        state: lastest
+        state: latest
         update_cache: True
       notify:
         - Start Nginx
