@@ -11,3 +11,8 @@
       shell: ls
       notify:
         - stop message
+        
+    - name: status sshd
+      shell: systemctl status sshd
+      notify:
+        - stop message
