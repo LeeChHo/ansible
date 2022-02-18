@@ -6,5 +6,5 @@
   - name: include task
     include: task.yml
     vars:
-      path: /etc/ansible
+      path: /etc
     register: git
