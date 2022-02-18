@@ -13,6 +13,10 @@
       tags:
         - install
     
+    - debug:
+        var: {{ ansible_facts }}
+      tags: install
+      
     - name: Remove nginx
       apt:
         name: nginx
