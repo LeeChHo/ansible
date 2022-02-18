@@ -1,0 +1,15 @@
+---
+- name: include test
+  hosts: all
+  remote_user: root
+  tasks:
+  - name: include task
+    include: task.yml
+    vars:
+      path: /etc/ansible
+    register: result_task
+  
+  - debug:
+      msg: "{{ result_task.stdout }}"
+  
+  
