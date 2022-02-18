@@ -1,7 +1,7 @@
 ---
 - name: install web server
   hosts: all
-  become: yes
+  bcome: yes
   tasks:
     - name: Install nginx
       apt: 
@@ -10,9 +10,14 @@
         update_cache: True
       notify:
         - Start Nginx
-        
-  handlers: 
-    - name: start Nginx
-      service:
+    
+    - name: Remove nginx
+      apt:
         name: nginx
-        state: started
+        state: absent
+        
+  handler: 
+    - name: start Nginx
+        service:
+          name: nginx
+          state: started
