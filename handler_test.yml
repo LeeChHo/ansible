@@ -1,18 +1,22 @@
 ---
 - name: handler test
   hosts: all
-  handlers:
-    - name: stop message
-      debug:
-        msg: stop play
-
   tasks:
     - name: execute ls
       shell: ls
+      vars:
+        taskname: ls
       notify:
         - stop message
-        
+    
     - name: status sshd
       shell: systemctl status sshd
+      vars:
+        taskname: sshd
       notify:
         - stop message
+
+  handlers:
+    - name: stop message
+      debug:
+        msg: "stop {{ taskname }} task"
